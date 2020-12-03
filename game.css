@@ -23,6 +23,15 @@ body {
 .btn {
   font-size: 2rem;
 }
+
+.incorrect {
+  background-color: #7b1404;
+}
+
+.correct {
+  background-color: #025002;
+}
+
 @media screen and (max-width: 768px) {
   .choice-container {
     min-width: 40rem;
