@@ -88,9 +88,24 @@ startQuiz = function () {
   return (questionCounter = 0);
 };
 
+// Iterate through questions and keep sccore
 getNewQuestion = function () {
-  if (availableQuestions.length === 0 || questionsCounter > MAX_QUESTIONS) {
+  if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
     localStorage.setItem("mostRecentScore", score);
     return window.location.assign("/end.html");
   }
+
+  questionCounter++;
+
+  // Keep track of which question we're on
+  let questionsIndex = Math.floor(Math.random() * availableQuestions.length),
+    currentQuestion = availableQuestions[questionsIndex];
+  question.innerText = currentQuestion.question;
+
+  // Keep track of which choice the user clicks on, using the data-number property in the HTML.
+
+  choices.forEach(choice) = function () {
+    let number = choice.dataset["number"];
+    choice.innerText = currentQuestion["choice" + number];
+  };
 };
