@@ -106,6 +106,20 @@ getNewQuestion = function () {
 
   choices.forEach(choice) = function () {
     let number = choice.dataset["number"];
-    choice.innerText = currentQuestion["choice" + number];
-  };
-};
+      choice.innerText = currentQuestion["choice" + number];
+
+    //   Remove questions that have already been answered
+      availableQuestions.splice(questionsIndex, 1);
+
+      acceptingAnswers = true;
+
+  }
+    choices.forEach(choice) = function () {
+        choice.addEventListener("click", e) = function () {
+            if (!acceptingAnswers) return
+            
+            acceptingAnswers = false;
+            let selectedChoice = e.target;
+            let selectedAnswer = selectedChoice.dataset["number"];
+            let classToApply = selectedAnswer === currentQuestion.answer ? "correct" : "incorrect";
+    }
