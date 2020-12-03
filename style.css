@@ -14,6 +14,7 @@ body {
 h1 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .container {
@@ -32,4 +33,22 @@ h1 {
 
 .flex-center {
   justify-content: center;
+  vertical-align: center;
 }
+
+/* .text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+} */
+
+/* .btn {
+  font-size: 1rem;
+  padding: 2rem;
+  width: 30rem;
+  text-align: center;
+  color: white;
+  background: #3ebdb6;
+} */
