@@ -1,14 +1,21 @@
 body {
   color: black;
+  padding: 5rem;
 }
 
-choice-container {
-  display: flex;
-  margin-bottom: 1rem;
-  width: 100%;
-  border-radius: 4px;
-  justify-content: center;
-  vertical-align: center;
+#question {
   font-size: 3rem;
-  background-color: #3ebdb6;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+#display-prefix {
+  font-size: 4rem;
+  color: #ff852d;
+  text-align: center;
+}
+
+#score {
+  font-size: 4rem;
+  text-align: center;
 }
