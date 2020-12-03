@@ -8,7 +8,13 @@ As our fourth homework assignment, we were asked to create a timed coding quiz w
 
 ![quiz-interface](/assets/quiz-interface.jpg)
 
-Unfortunately, I didn't finish building this quiz in time for the homework deadline, so I'm submitting the portion that's finished. Here's what's left to be done:
+Unfortunately, I didn't finish building this quiz in time for the homework deadline, so I'm submitting the portion that's finished.
+
+Github repo URL: https://github.com/melissakinsey/quiz.git
+
+GitLab Pages URL: https://melissakinsey.github.io/quiz/
+
+Here's what's left to be done:
 
 \*I think there are some stray classes and IDs I don't need. Once I get the quiz working, I'll go through and dry up the code (to the extent I can, given my limited knowledge at this point).
 
