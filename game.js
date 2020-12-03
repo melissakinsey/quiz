@@ -87,3 +87,10 @@ var MAX_QUESTIONS = 10;
 startQuiz = function () {
   return (questionCounter = 0);
 };
+
+getNewQuestion = function () {
+  if (availableQuestions.length === 0 || questionsCounter > MAX_QUESTIONS) {
+    localStorage.setItem("mostRecentScore", score);
+    return window.location.assign("/end.html");
+  }
+};
