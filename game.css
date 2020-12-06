@@ -20,8 +20,11 @@ body {
   text-align: center;
 }
 
-.btn {
+.btn btn-info {
+  display: block;
   font-size: 2rem;
+
+  word-wrap: break-word;
 }
 
 .incorrect {
