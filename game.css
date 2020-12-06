@@ -1,7 +1,56 @@
 body {
-  color: black;
+  background-color: #cae3e9;
   padding: 5rem;
+  max-height: none;
 }
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 65%;
+  font-family: "Work Sans";
+  font-weight: 400;
+}
+
+.container {
+  width: 100vw;
+  max-height: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 60rem;
+  padding: 2rem;
+}
+
+.flex-center {
+  justify-content: center;
+  vertical-align: center;
+}
+
+.choice-prefix {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.choice-text {
+  font-size: 2.25rem;
+  font-weight: 400;
+}
+
+/* .text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+} */
 
 #question {
   font-size: 2.5rem;
@@ -23,7 +72,6 @@ body {
 .btn btn-info {
   display: block;
   font-size: 2rem;
-
   word-wrap: break-word;
 }
 
@@ -38,5 +86,6 @@ body {
 @media screen and (max-width: 768px) {
   .choice-container {
     min-width: 40rem;
+    max-height: none;
   }
 }
