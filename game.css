@@ -36,7 +36,8 @@ h1 {
 
 .choice-prefix {
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 800;
+  color: #01303b;
 }
 
 .choice-text {
@@ -60,13 +61,15 @@ h1 {
 
 #display-prefix {
   font-size: 4rem;
-  color: #ff852d;
+  color: #02596e;
+  font-weight: 800;
   text-align: center;
 }
 
 #score {
-  font-size: 3rem;
+  font-size: 4.5rem;
   text-align: center;
+  font-weight: 800;
 }
 
 .btn btn-info {
