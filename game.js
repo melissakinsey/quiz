@@ -7,42 +7,7 @@ var acceptingAnswers = true;
 var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
-var questions = []
-  {
-    
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    question: "What API parameter details should be documented?",
-    choice1: "Data types, min-max values, required/optional, and exammples",
-    choice2: "Appearance, callbacks, negatives, booleans",
-    choice3: "Order, sequence, and positive/negative data",
-    choice4: "Relationships and history",
-
-    question: "What is a callback?",
-    choice1:
-      "The packet of information returned to the caller after a routine finishes",Nu
-    choice2: "A recursive function that creates a loop",
-    choice3: "A parameter pointing to an earlier reference value",
-    choice4:
-      "A function passed as an argument so that the function is called when a process finishes",
-
-    question: "What is a package manager?",
-    choice1: "A tool for configuration and distribution of bundled apps",
-    choice2: "A repo for app bundles",
-    choice3: "A utility for code compresssion",
-    choice4:
-      "A system that ensures compatibility of code, tools, apps, and plugins",
-  },
-];
+var questions = [];
 
 // Use caps for variables that aren't going to change
 var SCORE_POINTS = 1;
