@@ -23,10 +23,10 @@ body {
   padding: 2rem;
 }
 
-.flex-center {
+/* .flex-center {
   justify-content: center;
   vertical-align: center;
-}
+} */
 
 .choice-prefix {
   font-size: 2.5rem;
@@ -41,11 +41,6 @@ body {
 
 .hidden {
   display: none;
-}
-
-#game {
-  justify-content: center;
-  flex-direction: column;
 }
 
 #question {
