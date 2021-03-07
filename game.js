@@ -1,7 +1,6 @@
-var question = document.getElementsById("#question");
+var question = document.getElementById("#question");
 var choices = document.getElementsByClassName("choice-text");
-var scoreText = document.getElementsId("#score");
-
+var scoreText = document.getElementById("#score");
 var currentQuestion = {};
 var acceptingAnswers = true;
 var score = 0;
@@ -13,12 +12,30 @@ var questions = [];
 var SCORE_POINTS = 1;
 var MAX_QUESTIONS = 10;
 
-startQuiz = function () {
-  return (questionCounter = 0);
+let startQuiz = function () {
+  questionCounter = 0;
 };
 
+var questions = [
+  {
+    question: "1. question 1 here",
+    choices: ["1a here", "1b here", "1c here", "1d here"],
+    correctanswer: "1b here",
+  },
+  {
+    question: "2. question 2 here",
+    choices: ["2a here", "2b here", "2c here", "2d here"],
+    correctanswer: "2a here",
+  },
+  {
+    question: "3. question 3 here",
+    choices: ["3a here", "3b here", "3c here", "3d here"],
+    correctanswer: "3d here",
+  },
+];
+
 // Create function declared on line 93 to keep track of the score
-getNewQuestion = function () {
+let getNewQuestion = function () {
   if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
     localStorage.setItem("mostRecentScore", score);
     return window.location.assign("/end.html");
