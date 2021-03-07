@@ -1,5 +1,6 @@
-var question = document.getElementById("#question");
-var choices = document.getElementById("#choices");
+var question = document.getElementById("question");
+var choices = document.getElementById("choices");
+var start = document.getElementById("start");
 //var choices = document.getElementsByClassName("choice-text");
 
 var scoreText = document.getElementById("#score");
@@ -55,19 +56,29 @@ let getNewQuestion = function () {
   let prefixes = ["A", "B", "C", "D"];
   // Cut last question from array and store in variable
   let current = availableQuestions.pop();
-
+  // Use forEach method to call choice prefix [A, B, C, and D] and choice text for each question in the array.
+  question.innerHTML = current.question;
+  current.choices.forEach((choice, index) => {
+    // Make selected prefix and choice text appear on button.
+    choices.innerHTML += `
+      <button type="button" class="btn btn-info btn-block">
+        <p class="choice-prefix">${prefixes[index]}</p>
+        <p class="choice-text" data-number="${index}">${choice}</p>
+      </button><br/><br/>
+    `;
+  });
   // Keep track of which choice the user clicks on, using the data-number property in the HTML.
 
-  choices.forEach(function (choice) {
-    // The dataset is data-number, so we know which choice is selected
-    let number = choice.dataset["number"];
-    choice.innerText = currentQuestion["choice" + number];
-
-    // Remove questions that have already been answered
-    availableQuestions.splice(questionsIndex, 1);
-
-    acceptingAnswers = true;
-  });
+  //   choices.forEach(function (choice) {
+  //     // The dataset is data-number, so we know which choice is selected
+  //     let number = choice.dataset["number"];
+  //     choice.innerText = currentQuestion["choice" + number];
+  //
+  //     // Remove questions that have already been answered
+  //     availableQuestions.splice(questionsIndex, 1);
+  //
+  //     acceptingAnswers = true;
+  //   });
   // Set up event listener
   //   choices.forEach(choice) = function () {
   //     choice.addEventListener("click", e) = function () {
@@ -93,4 +104,9 @@ let getNewQuestion = function () {
   //         10;
   //     };
   //   };
+};
+
+start.onclick = function () {
+  startQuiz();
+  getNewQuestion();
 };
