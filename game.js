@@ -51,6 +51,11 @@ let getNewQuestion = function () {
   //   currentQuestion = availableQuestions[questionsIndex];
   // question.innerText = currentQuestion.question;
 
+  // Set up array to structure list of choices
+  let prefixes = ["A", "B", "C", "D"];
+  // Cut last question from array and store in variable
+  let current = availableQuestions.pop();
+
   // Keep track of which choice the user clicks on, using the data-number property in the HTML.
 
   choices.forEach(function (choice) {
