@@ -9,25 +9,34 @@ var acceptingAnswers = true;
 var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
-var questions = [];
 
 // Use caps for variables that aren't going to change
-var SCORE_POINTS = 1;
+var SCORE_POINTS = 0;
 var MAX_QUESTIONS = 10;
 
 var questions = [
   {
-    question: "1. question 1 here",
+    question: "What color is the sky?",
+    choices: ["red", "blue", "green", "yellow"],
+    correctAnswer: "blue",
+  },
+  {
+    question: "What color is the sky?",
+    choices: ["red", "blue", "green", "yellow"],
+    correctAnswer: "blue",
+  },
+  {
+    question: "question 1 here",
     choices: ["1a here", "1b here", "1c here", "1d here"],
     correctanswer: "1b here",
   },
   {
-    question: "2. question 2 here",
+    question: "question 2 here",
     choices: ["2a here", "2b here", "2c here", "2d here"],
     correctanswer: "2a here",
   },
   {
-    question: "3. question 3 here",
+    question: "question 3 here",
     choices: ["3a here", "3b here", "3c here", "3d here"],
     correctanswer: "3d here",
   },
@@ -36,6 +45,8 @@ var questions = [
 let startQuiz = function () {
   // Reset counter
   questionCounter = 0;
+
+  SCORE_POINTS = 0;
   // Reset available questions before each new game
   availableQuestions = [...questions];
 };
@@ -67,18 +78,21 @@ let getNewQuestion = function () {
       </button><br/><br/>
     `;
   });
+
   // Keep track of which choice the user clicks on, using the data-number property in the HTML.
 
-  //   choices.forEach(function (choice) {
-  //     // The dataset is data-number, so we know which choice is selected
-  //     let number = choice.dataset["number"];
-  //     choice.innerText = currentQuestion["choice" + number];
-  //
-  //     // Remove questions that have already been answered
-  //     availableQuestions.splice(questionsIndex, 1);
-  //
-  //     acceptingAnswers = true;
-  //   });
+  choices.querySelectorAll("button").forEach(function (choice) {
+    choice.onclick = function () {
+      // The dataset is data-number, so we know which choice is selected
+      let number = choice.querySelector("p.choice-text").dataset["number"];
+
+      if (current.choices[number] == current.choices.correctanswer) {
+        SCORE_POINTS += 1;
+      } else {
+        //reduce timer
+      }
+    };
+  });
   // Set up event listener
   //   choices.forEach(choice) = function () {
   //     choice.addEventListener("click", e) = function () {
