@@ -69,6 +69,8 @@ let getNewQuestion = function () {
   let current = availableQuestions.pop();
   // Use forEach method to call choice prefix [A, B, C, and D] and choice text for each question in the array.
   question.innerHTML = current.question;
+  //clear previous choices
+  choices.innerHTML = "";
   current.choices.forEach((choice, index) => {
     // Make selected prefix and choice text appear on button.
     choices.innerHTML += `
@@ -86,11 +88,14 @@ let getNewQuestion = function () {
       // The dataset is data-number, so we know which choice is selected
       let number = choice.querySelector("p.choice-text").dataset["number"];
 
-      if (current.choices[number] == current.choices.correctanswer) {
+      if (current.choices[number] == current.correctanswer) {
         SCORE_POINTS += 1;
+        console.log("correct");
       } else {
+        console.log("incorrect");
         //reduce timer
       }
+      getNewQuestion();
     };
   });
   // Set up event listener
