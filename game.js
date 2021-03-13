@@ -13,7 +13,7 @@ var availableQuestions = [];
 // Use caps for variables that aren't going to change
 var SCORE_POINTS = 0;
 var MAX_QUESTIONS = 5;
-var minForQuiz = 5;
+var minForQuiz = 10;
 
 var questions = [
   {
@@ -58,7 +58,7 @@ let startQuiz = function () {
 function startTimer() {
   clearInterval(timer);
   time = new Date();
-  time.setMinutes(5);
+  time.setMinutes(minForQuiz);
   time.setSeconds(0);
   quizTimer.innerHTML = `${time.getMinutes()}:${time
     .getSeconds()
@@ -66,11 +66,15 @@ function startTimer() {
     .padStart(2, "0")}`;
 
   timer = setInterval(() => {
-    time.setSeconds(time.getSeconds() - 1);
-    quizTimer.innerHTML = `${time.getMinutes()}:${time
-      .getSeconds()
-      .toString()
-      .padStart(2, "0")}`;
+    if (time.getMinutes() === 0 && time.getSeconds() === 0) {
+      stopQuiz();
+    } else {
+      time.setSeconds(time.getSeconds() - 1);
+      quizTimer.innerHTML = `${time.getMinutes()}:${time
+        .getSeconds()
+        .toString()
+        .padStart(2, "0")}`;
+    }
   }, 1000);
 }
 
