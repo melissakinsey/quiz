@@ -12,7 +12,8 @@ var availableQuestions = [];
 
 // Use caps for variables that aren't going to change
 var SCORE_POINTS = 0;
-var MAX_QUESTIONS = 10;
+var MAX_QUESTIONS = 5;
+var minForQuiz = 5;
 
 var questions = [
   {
@@ -73,10 +74,9 @@ function startTimer() {
   }, 1000);
 }
 
-let stopQuiz = function (points) {
-  console.log(points);
+let stopQuiz = function () {
   choices.innerHTML = "";
-  scoreText.innerHTML = points;
+  scoreText.innerHTML = SCORE_POINTS;
   question.innerHTML = "";
   clearInterval(timer);
 };
@@ -125,12 +125,14 @@ let getNewQuestion = function () {
         } else {
           console.log("incorrect");
           //reduce timer
+          let howManySecToReduce = (minForQuiz * 60) / MAX_QUESTIONS;
+          time.setSeconds(time.getSeconds() - howManySecToReduce);
         }
         getNewQuestion();
       };
     });
   } else {
-    stopQuiz(SCORE_POINTS);
+    stopQuiz();
   }
 
   // Set up event listener
