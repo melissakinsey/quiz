@@ -3,7 +3,7 @@ var choices = document.getElementById("choices");
 var start = document.getElementById("start");
 //var choices = document.getElementsByClassName("choice-text");
 
-var scoreText = document.getElementById("#score");
+var scoreText = document.getElementById("score");
 var currentQuestion = {};
 var acceptingAnswers = true;
 var score = 0;
@@ -51,6 +51,13 @@ let startQuiz = function () {
   availableQuestions = [...questions];
 };
 
+let stopQuiz = function (points) {
+  console.log(points);
+  choices.innerHTML = "";
+  scoreText.innerHTML = points;
+  question.innerHTML = "";
+};
+
 // Create function declared on line 93 to keep track of the score
 let getNewQuestion = function () {
   // if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
@@ -67,37 +74,42 @@ let getNewQuestion = function () {
   let prefixes = ["A", "B", "C", "D"];
   // Cut last question from array and store in variable
   let current = availableQuestions.pop();
-  // Use forEach method to call choice prefix [A, B, C, and D] and choice text for each question in the array.
-  question.innerHTML = current.question;
-  //clear previous choices
-  choices.innerHTML = "";
-  current.choices.forEach((choice, index) => {
-    // Make selected prefix and choice text appear on button.
-    choices.innerHTML += `
-      <button type="button" class="btn btn-info btn-block">
-        <p class="choice-prefix">${prefixes[index]}</p>
-        <p class="choice-text" data-number="${index}">${choice}</p>
-      </button><br/><br/>
-    `;
-  });
+  if (current) {
+    // Use forEach method to call choice prefix [A, B, C, and D] and choice text for each question in the array.
+    question.innerHTML = current.question;
+    //clear previous choices
+    choices.innerHTML = "";
+    current.choices.forEach((choice, index) => {
+      // Make selected prefix and choice text appear on button.
+      choices.innerHTML += `
+        <button type="button" class="btn btn-info btn-block">
+          <p class="choice-prefix">${prefixes[index]}</p>
+          <p class="choice-text" data-number="${index}">${choice}</p>
+        </button><br/><br/>
+      `;
+    });
 
-  // Keep track of which choice the user clicks on, using the data-number property in the HTML.
+    // Keep track of which choice the user clicks on, using the data-number property in the HTML.
 
-  choices.querySelectorAll("button").forEach(function (choice) {
-    choice.onclick = function () {
-      // The dataset is data-number, so we know which choice is selected
-      let number = choice.querySelector("p.choice-text").dataset["number"];
+    choices.querySelectorAll("button").forEach(function (choice) {
+      choice.onclick = function () {
+        // The dataset is data-number, so we know which choice is selected
+        let number = choice.querySelector("p.choice-text").dataset["number"];
 
-      if (current.choices[number] == current.correctanswer) {
-        SCORE_POINTS += 1;
-        console.log("correct");
-      } else {
-        console.log("incorrect");
-        //reduce timer
-      }
-      getNewQuestion();
-    };
-  });
+        if (current.choices[number] == current.correctanswer) {
+          SCORE_POINTS += 1;
+          console.log("correct");
+        } else {
+          console.log("incorrect");
+          //reduce timer
+        }
+        getNewQuestion();
+      };
+    });
+  } else {
+    stopQuiz(SCORE_POINTS);
+  }
+
   // Set up event listener
   //   choices.forEach(choice) = function () {
   //     choice.addEventListener("click", e) = function () {
