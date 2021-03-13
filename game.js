@@ -41,21 +41,44 @@ var questions = [
     correctanswer: "3d here",
   },
 ];
+let timer = "";
+let time = "";
+let quizTimer = document.getElementById("timer");
 
 let startQuiz = function () {
   // Reset counter
   questionCounter = 0;
-
   SCORE_POINTS = 0;
   // Reset available questions before each new game
   availableQuestions = [...questions];
+  startTimer();
 };
+
+function startTimer() {
+  clearInterval(timer);
+  time = new Date();
+  time.setMinutes(5);
+  time.setSeconds(0);
+  quizTimer.innerHTML = `${time.getMinutes()}:${time
+    .getSeconds()
+    .toString()
+    .padStart(2, "0")}`;
+
+  timer = setInterval(() => {
+    time.setSeconds(time.getSeconds() - 1);
+    quizTimer.innerHTML = `${time.getMinutes()}:${time
+      .getSeconds()
+      .toString()
+      .padStart(2, "0")}`;
+  }, 1000);
+}
 
 let stopQuiz = function (points) {
   console.log(points);
   choices.innerHTML = "";
   scoreText.innerHTML = points;
   question.innerHTML = "";
+  clearInterval(timer);
 };
 
 // Create function declared on line 93 to keep track of the score
