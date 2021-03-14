@@ -4,6 +4,9 @@ var start = document.getElementById("start");
 //var choices = document.getElementsByClassName("choice-text");
 
 var scoreText = document.getElementById("score");
+var initials = document.getElementById("initials");
+var name = "";
+
 var currentQuestion = {};
 var acceptingAnswers = true;
 var score = 0;
@@ -17,27 +20,59 @@ var minForQuiz = 10;
 
 var questions = [
   {
-    question: "What color is the sky?",
-    choices: ["red", "blue", "green", "yellow"],
-    correctAnswer: "blue",
+    question:
+      "Technical writing conveys information about which of the following?",
+    choices: [
+      "Tools and libraries",
+      "A specific technical topic",
+      "The CI/CD process",
+      "Engineers' superior intelligence",
+    ],
+    correctAnswer: "A specific technical topic",
   },
   {
-    question: "What color is the sky?",
-    choices: ["red", "blue", "green", "yellow"],
-    correctAnswer: "blue",
+    question: "Technical writing uses which kind of language?",
+    choices: ["Figurative", "Poetic", "Robotic", "Factual"],
+    correctAnswer: "Factual",
   },
   {
-    question: "question 1 here",
-    choices: ["1a here", "1b here", "1c here", "1d here"],
-    correctanswer: "1b here",
+    question: "Why is UX/UI design important in tech writing?",
+    choices: [
+      "To entertain the user",
+      "To make site content easier to understand",
+      "To make the content look slick",
+      "To persuade the user to agree with the writer",
+    ],
+    correctanswer: "To make site content easier to understand",
   },
   {
-    question: "question 2 here",
+    question: "What is an API developer portal?",
     choices: ["2a here", "2b here", "2c here", "2d here"],
     correctanswer: "2a here",
   },
   {
-    question: "question 3 here",
+    question: "Why would a technical writer make a pull request?",
+    choices: ["3a here", "3b here", "3c here", "3d here"],
+    correctanswer: "3d here",
+  },
+  {
+    question: "How would a tech writer use Postman?",
+    choices: ["3a here", "3b here", "3c here", "3d here"],
+    correctanswer: "3d here",
+  },
+  {
+    question: "Which of the following is not a good measure of API success?",
+    choices: ["3a here", "3b here", "3c here", "3d here"],
+    correctanswer: "3d here",
+  },
+  {
+    question:
+      "Which of the following would not be part of an API quick-start guide?",
+    choices: ["3a here", "3b here", "3c here", "3d here"],
+    correctanswer: "3d here",
+  },
+  {
+    question: "Which term best describes a successful technical writer?",
     choices: ["3a here", "3b here", "3c here", "3d here"],
     correctanswer: "3d here",
   },
@@ -51,9 +86,19 @@ let startQuiz = function () {
   questionCounter = 0;
   SCORE_POINTS = 0;
   // Reset available questions before each new game
-  availableQuestions = [...questions];
+  availableQuestions = [...questions.slice(0, MAX_QUESTIONS)];
   startTimer();
 };
+
+function addInput() {
+  let input = document.createElement("input");
+  input.oninput = function (e) {
+    name = e.target.value;
+  };
+  let btn = document.createElement("button");
+  btn.innerText = "save";
+  return [input, btn];
+}
 
 function startTimer() {
   clearInterval(timer);
@@ -83,6 +128,23 @@ let stopQuiz = function () {
   scoreText.innerHTML = SCORE_POINTS;
   question.innerHTML = "";
   clearInterval(timer);
+  initials.append(...addInput());
+  saveToLeaderBoard();
+};
+
+let saveToLeaderBoard = function (initials = "AB") {
+  let leaderBoard = localStorage.getItem("leaderBoard");
+  if (leaderBoard) {
+    leaderBoard = JSON.parse(leaderBoard);
+  } else {
+    leaderBoard = [];
+  }
+
+  leaderBoard.push({
+    initials: initials,
+    score: SCORE_POINTS,
+  });
+  localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
 };
 
 // Create function declared on line 93 to keep track of the score
