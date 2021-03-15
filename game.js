@@ -233,7 +233,7 @@ let getNewQuestion = function () {
     current.choices.forEach((choice, index) => {
       // Display alpha prefixes and answer choices on buttons
       choices.innerHTML += `
-          <button type="button" class="btn btn-info btn-block">
+          <button type="button" class="btn btn-outline-info d-grid gap-2 col-6 mx-auto" data-bs-toggle="button">
           <p class="choice-prefix">${prefixes[index]}</p>
           <p class="choice-text" data-number="${index}">${choice}</p>
           </button><br/><br/>
