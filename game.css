@@ -21,6 +21,7 @@ body {
   align-items: center;
   max-width: 60rem;
   padding: 2rem;
+  flex-direction: column;
 }
 
 .choice-prefix {
@@ -69,6 +70,22 @@ body {
   font-size: 4.5rem;
   text-align: center;
   font-weight: 800;
+}
+
+#timer {
+  font-size: 3rem;
+  color: #02596e;
+  font-weight: 800;
+}
+
+#leaderBoard {
+  font-size: 3rem;
+  color: #000000;
+  font-weight: 800;
+}
+
+#initials {
+  font-size: 3rem;
 }
 
 @media screen and (max-width: 768px) {

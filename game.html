@@ -22,24 +22,21 @@
     />
   </head>
   <body>
-    <div id="timer" style='font-size: 30px;'>00:00</div>
-    <div id="initials"></div>
+    <div id="timer">00:00</div>
+    <ol id="leaderBoard"></ol>
     <div class="container">
-        
-        <div>
-          <p id="score-prefix">Score</p>
-        
-<!-- Add start button -->
-          <p id="score">0</p>
-          <button id="start" class="btn btn-info btn-block">Start</button
-        </div>
-        <div id="question">
+      <div>
+        <p id="score-prefix" style="display: none">Score</p>
 
-        </div>
-        <div id="choices">
+        <!-- Add start button -->
+        <p id="score"></p>
+        <button id="start" class="btn btn-info btn-block">Start</button>
+      </div>
 
-        </div>
+      <div id="question"></div>
+      <div id="choices"></div>
     </div>
+    <div id="initials"></div>
   </body>
   <script src="./game.js"></script>
 </html>
