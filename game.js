@@ -131,7 +131,7 @@ let startQuiz = function () {
   availableQuestions = [...questions.slice(0, MAX_QUESTIONS)];
   startTimer();
   score_prefix.style.display = "none";
-  start.style.display = "none";
+  start.classList.add("d-none");
   leaderBoard.innerHTML = "";
 };
 // Add input handler to let user enter and save his/her/their initials at end of game
@@ -206,20 +206,10 @@ let saveToLeaderBoard = function (initials = "AB") {
   // If score and initials are saved in local storage, stringify to display on leaderboard
   localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
   showLeaderBoard(leaderBoard);
-  start.style.display = "block";
+  start.classList.remove("d-none"); //Add play button that opens quiz from landing page.
+  start.innerText = "Play again";
 };
-// Display leaderboard as a numbered list of scores
-function showLeaderBoard(list) {
-  let leaderBoard = document.querySelector("#leaderBoard");
-  leaderBoard.innerHTML = "";
-  // Arrange items (initials: score) in descending order, with highest score at top of list
-  list.sort((a, b) => b.score - a.score);
-  list.forEach((item) => {
-    leaderBoard.innerHTML += `
-        <li>${item.initials}: ${item.score}</li>
-        `;
-  });
-}
+
 // Get new question each time one is answered
 let getNewQuestion = function () {
   // Set up array to structure list of answer choices
@@ -247,9 +237,7 @@ let getNewQuestion = function () {
         // Set up scoring so that a point is added for each correct response and time is deducted for each incorrect response
         if (current.choices[number] == current.correctanswer) {
           SCORE_POINTS += 1;
-          console.log("correct");
         } else {
-          console.log("incorrect");
           // Set up timer so that it subtracts time in proportion to the number of quiz questions
           let howManySecToReduce = (minForQuiz * 60) / MAX_QUESTIONS;
           time.setSeconds(time.getSeconds() - howManySecToReduce);
