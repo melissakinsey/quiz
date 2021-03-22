@@ -17,11 +17,10 @@
 - [Contributions](#Contributions)
 - [Credits](#Credits)
 
-![Screenshots of employee tracker](assets/employee-schema-cover.png)
-
 # DESCRIPTION
 
 This simple quiz app is composed in HTML/CSS and Javascript. It includes a timer, a scoring mechanism, and a leaderboard showing the initials of the top players. The content focuses on technical writing.
+
 ![Quiz question](assets/quiz-question.png)
 
 ## Project Repo & Demo
@@ -45,7 +44,9 @@ This app features the following:
 - A penalty mechanism that subtracts time for each wrong answer
 - Automatic scoring
 - A landing page with a leaderboard button
+
   ![Quiz landing page](assets/quiz-landing-page.png)
+
 - A leaderboard that allows players to record their scores
 
   ![Quiz leaderboard](assets/leaderboard.png)
