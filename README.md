@@ -1,87 +1,85 @@
-# 04 Web APIs: Code Quiz
+![readme-header](assets/readme-header.png)
+[![stars - readme-generator](https://img.shields.io/github/stars/melissakinsey/readme-generator?style=social)](https://github.com/melissakinsey/readme-generator)
+[![forks - readme-generator](https://img.shields.io/github/forks/melissakinsey/readme-generator?style=social)](https://github.com/melissakinsey/readme-generator)
 
-## Your Task
+[![melissakinsey - readme-generator](https://img.shields.io/static/v1?label=melissakinsey&message=readme-generator&color=blue&logo=github)](https://github.com/melissakinsey/readme-generator)
 
-As you proceed in your journey to becoming a full-stack web developer, it’s likely that you’ll be asked to complete a coding assessment, perhaps as part of an interview process. A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges.
+<div align="center">
+</div>
 
-To help you become familiar with these tests and give you a chance to apply the skills from this module, this week’s homework invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. This week’s coursework will teach you all the skills you need to succeed in this assignment.
+[Released under ![License - MIT](https://img.shields.io/badge/License-MIT-blue)](#license) by [@melissakinsey](https://github.com/melissakinsey).
+
+- [Description](#Description)
+- [Installation](#Installation)
+- [Features](#Features)
+- [Technical Specs](#Technical_Specs)
+- [Lessons Learned](#Lessons_Learned)
+- [Contributions](#Contributions)
+- [Credits](#Credits)
+
+![Screenshots of employee tracker](assets/employee-schema-cover.png)
+
+# DESCRIPTION
+
+This simple quiz app is composed in HTML/CSS and Javascript. It includes a timer, a scoring mechanism, and a leaderboard showing the initials of the top players. The content focuses on technical writing.
+![Quiz question](assets/quiz-question.png)
+
+## Project Repo & Demo
+
+The [code for this quiz](https://github.com/melissakinsey/quiz) is housed on GitHub.
 
 ## User Story
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+_AS A_ tech professional _I WANT TO_ take a fun quiz _SO I CAN_ learn more about technical writing.
 
-## Acceptance Criteria
+## Usage
 
-```
-GIVEN I am taking a code quiz
---WHEN I click the start button
---THEN a timer starts and I am presented with a question
---WHEN I answer a question
---THEN I am presented with another question
---WHEN I answer a question incorrectly
---THEN time is subtracted from the clock
---WHEN all questions are answered or the timer reaches 0
---THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+To use this app, open game.js in your local browser. Read the question and choose the best answer among the four choices offered. When you're finished, enter your initials to record your score. Then review the leaderboard to see where you rank compared with other players.
 
-## Mock-Up
+# FEATURES
 
-The following animation demonstrates the application functionality:
+This app features the following:
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+- Ten multiple-choice questions
+- A timer that begins counting down automatically when the player clicks "Start"
+- A penalty mechanism that subtracts time for each wrong answer
+- Automatic scoring
+- A landing page with a leaderboard button
+  ![Quiz landing page](assets/quiz-landing-page.png)
+- A leaderboard that allows players to record their scores
 
-## Grading Requirements
+  ![Quiz leaderboard](assets/leaderboard.png)
 
-This homework is graded based on the following criteria:
+# TECHNICAL SPECS
 
-### Technical Acceptance Criteria: 40%
+- Runs on the command line
+- Styled with HTML/CSS and Bootstrap
+- Uses a Bootstrap modal to show the leaderboard either before the quiz (from the Leaderboard button on the landing page) or after the quiz (automatically when player's initials are entered)
+- Ends game when timer reaches zero
 
-- Satisfies all of the above acceptance criteria.
+# LESSONS LEARNED
 
-### Deployment: 32%
+This quiz has a lot of moving parts. I enjoyed bringing in a couple of elements not required by the assignment, such as the landing page and the leaderboard. Except for some special elements (namely, the modal), I found Bootstrap frustrating. I'd rather write my own HTML/CSS than try to override hidden styling that's not to my taste or not suitable for the project.
 
-- Application deployed at live URL.
+# CONTRIBUTIONS
 
-- Application loads with no errors.
+This was an individual project. Thanks, as always, to my study group and TAs!
 
-- Application GitHub URL submitted.
+# CREDITS
 
-- GitHub repository that contains application code.
+- Header adapted from image by filo/iStockPhoto.
 
-### Application Quality: 15%
+![Original iStock image](assets/header-original.png)
 
-- Application user experience is intuitive and easy to navigate.
+- Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo)
 
-- Application user interface style is clean and polished.
+![Badge Generator](assets/badge-generator.png)
 
-- Application resembles the mock-up functionality provided in the homework instructions.
+# CONTACT ME
 
-### Repository Quality: 13%
+Ping me with questions or project feedback:
 
-- Repository has a unique name.
-
-- Repository follows best practices for file structure and naming conventions.
-
-- Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-- Repository contains multiple descriptive commit messages.
-
-- Repository contains quality README file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-- The URL of the functional, deployed application.
-
-- The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
----
-
-© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+- GitHub: [@melissakinsey](https://melissakinsey.github.io/portfolio/)
+- Twitter: [@KinseyMelissa](https://twitter.com/KinseyMelissa)
+- Email: [kinsey.melissa@gmail.com](mailto:kinsey.melissa@gmail.com)
+- LinkedIn: [linkedin.com/melissajaynekinsey](https://www.linkedin.com/in/melissajaynekinsey/)

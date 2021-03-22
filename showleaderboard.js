@@ -10,8 +10,9 @@ function showLeaderBoard(list) {
           <li>${item.initials}: ${item.score}</li>
           `;
   });
+  // Show leaderboard on Bootstrap modal that pops up at the end of game and clicks closed.
   leaderBoard.innerHTML = `
-      <div id='myModal' class="modal" tabindex="-1" aria-hidden="true">
+      <div id="myModal" class="modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
